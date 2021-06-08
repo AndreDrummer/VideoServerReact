@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    background-color: #000;
+}
+
+aside {  
+    float: right;
+    font-style: italic;  
+    background-color: lightgray;  
+    margin-right: 100px;
+    margin-top: 30px;
+    background-color: #000;
+}
+
+ul li {
+    list-style: none;        
+}
