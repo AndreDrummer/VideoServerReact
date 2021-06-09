@@ -1,16 +1,16 @@
-import React, { useReducer } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import videoNames from "../database/filenames";
-import { initialState, reducer } from '../store';
+import { useSelector } from 'react-redux';
 
 const VideoPlayer = _ => {
-    const [state] = useReducer(reducer, initialState);
+    const videoBeingPlayed = useSelector((state) => state.video.videoBeingPlayed)
     return (
         <div class="card" style={{ marginTop: "50px", marginLeft: "100px", width: "40rem" }}>
-            <ReactPlayer url={videoNames[state.videoBeingPlayed]} width="100%" height="100%" controls={true} />
+            <ReactPlayer url={videoNames[videoBeingPlayed]} width="100%" height="100%" controls={true} />
 
             <div class="card-body" style={{ textAlign: "justify" }}>
-                <h5 class="card-title">Nome do Vídeo</h5>
+                <h5 class="card-title">Nome do Vídeo </h5>
             </div>
         </div>
     );

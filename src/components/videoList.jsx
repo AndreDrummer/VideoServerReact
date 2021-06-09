@@ -1,17 +1,17 @@
-import React, { useReducer } from "react";
+import React from "react";
+import { useDispatch } from 'react-redux';
+import { changeVideo } from '../store/videoSlice';
 import ReactPlayer from "react-player";
-import { initialState, reducer } from '../store';
-import { changeVideo } from '../store/actions';
 import videoNames from "../database/filenames";
 
-const VideoList = props => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+const VideoList = _ => {
+    const dispatch = useDispatch();
     return (
         <aside>
             {
                 videoNames.map((videoFilePath, index) => {
                     return <ul>
-                        <li onClick={() => changeVideo(dispatch, index)}>
+                        <li onClick={() => dispatch(changeVideo(index))}>
                             <div class="card" style={{ marginTop: "20px", width: "20rem" }}>
                                 <ReactPlayer url={videoFilePath} width="100%" height="100%" controls={false} />
 

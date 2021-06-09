@@ -1,7 +1,8 @@
-import { reducer } from './reducers'
+import { configureStore } from '@reduxjs/toolkit'
+import videoReducer from './videoSlice';
 
-const initialState = {
-    videoBeingPlayed: 0,
-}
-
-export { initialState, reducer };
+export default configureStore({
+    reducer: {
+        video: videoReducer,
+    },
+})
