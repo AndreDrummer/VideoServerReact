@@ -7,16 +7,16 @@ import videoNames from "../database/filenames";
 const VideoList = _ => {
     const dispatch = useDispatch();
     return (
-        <aside>
+        <aside style={{ display: "inline-block", marginTop: "90px" }}>
             {
-                videoNames.map((videoFilePath, index) => {
+                videoNames.map((video, index) => {
                     return <ul>
                         <li onClick={() => dispatch(changeVideo(index))}>
-                            <div class="card" style={{ marginTop: "20px", width: "20rem" }}>
-                                <ReactPlayer url={videoFilePath} width="100%" height="100%" controls={false} />
+                            <div class="card" style={{ width: "20rem", height: "15rem", backgroundColor: "#008000" }}>
+                                <ReactPlayer url={video["file"]} width="100%" height="80%" controls={false} />
 
-                                <div class="card-body" style={{ textAlign: "justify" }}>
-                                    <h5 class="card-title">Nome do Vídeo</h5>
+                                <div class="card-body" style={{ color: "#fff", textAlign: "justify" }}>
+                                    <h5 class="card-title">{video["filename"]}</h5>
                                 </div>
                             </div>
                         </li>
